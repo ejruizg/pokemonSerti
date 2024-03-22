@@ -91,7 +91,6 @@ public class PokemonServiceImpl implements PokemonService{
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
         Gson gson = new Gson();
         PokemonChainsService pokemonChains = gson.fromJson(responseEntity.getBody().toString(), PokemonChainsService.class);
-        //Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
         ArrayList evoluciones = new ArrayList<>();
         obtenerNombresEvoluciones(pokemonChains.getChain(),evoluciones);
         log.info("Se termina el consumo de servicio de Evoluciones");
